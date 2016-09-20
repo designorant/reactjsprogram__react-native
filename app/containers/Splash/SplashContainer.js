@@ -2,9 +2,18 @@ import React, { Component } from 'react'
 import { Splash } from '~/components'
 
 export default class SplashContainer extends Component {
+  handleLoginFinished = (error, result) => {
+    if (error) {
+      console.warn('Error in handleLoginFinished: ', error)
+    } else if (result.isCancelled === true) {
+      console.log('Auth cancelled')
+    } else {
+      console.log('Auth successful')
+    }
+  }
   render () {
     return (
-      <Splash />
+      <Splash onLoginFinished={this.handleLoginFinished} />
     )
   }
 }
