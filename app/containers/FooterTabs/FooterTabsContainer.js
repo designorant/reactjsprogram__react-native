@@ -1,30 +1,21 @@
-import React, { PropTypes, Component } from 'react'
 import { FooterTabs } from '~/components'
 import { connect } from 'react-redux'
 import { setFooterTab } from '~/redux/modules/activeFooterTab'
 
-class FooterTabsContainer extends Component {
-  static propTypes = {
-    activeFooterTab: PropTypes.string.isRequired,
-    dispatch: PropTypes.func.isRequired,
-    navigator: PropTypes.object.isRequired
-  }
-  state = {}
-  render () {
-    return (
-      <FooterTabs
-        activeFooterTab={this.props.activeFooterTab}
-        onTabSelect={(tab) => this.props.dispatch(setFooterTab(tab))} />
-    )
+function mapStateToProps ({activeFooterTab}, {navigator}) {
+  return {
+    activeFooterTab,
+    navigator
   }
 }
 
-function mapStateToProps ({activeFooterTab}) {
+function mapDispatchToProps (dispatch) {
   return {
-    activeFooterTab
+    onTabSelect: (tab) => dispatch(setFooterTab)
   }
 }
 
 export default connect(
-  mapStateToProps
-)(FooterTabsContainer)
+  mapStateToProps,
+  mapDispatchToProps
+)(FooterTabs)
