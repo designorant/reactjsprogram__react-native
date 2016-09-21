@@ -11,7 +11,7 @@ function mapStateToProps ({activeFooterTab}, {navigator}) {
 
 function mapDispatchToProps (dispatch) {
   return {
-    onTabSelect: (tab) => dispatch(setFooterTab)
+    onTabSelect: (tab) => dispatch(setFooterTab(tab))
   }
 }
 
