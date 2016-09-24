@@ -1,3 +1,5 @@
+import { getAccessToken, authWithToken } from '~/api/auth'
+
 const AUTHENTICATING = 'AUTHENTICATING'
 const NOT_AUTHED = 'NOT_AUTHED'
 const IS_AUTHED = 'IS_AUTHED'
@@ -21,9 +23,29 @@ function isAuthed (uid) {
   }
 }
 
+export function handleAuthWithFirebase () {
+  return function (dispatch, getState) {
+    dispatch(authenticating())
+    return getAccessToken()
+      .then(({accessToken}) => authWithToken(accessToken))
+      .catch((error) => console.warn('Error in handleAuthWithFirebase: ', error))
+  }
+}
+
+export function onAuthChange (user) {
+  return function (dispatch) {
+    if (!user) {
+      dispatch(notAuthed())
+    } else {
+      const { providerData, uid } = user
+      dispatch(isAuthed(uid))
+    }
+  }
+}
+
 const initialState = {
   isAuthed: false,
-  isAuthenticating: false,
+  isAuthenticating: true,
   authedId: ''
 }
 
