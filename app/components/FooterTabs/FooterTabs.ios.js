@@ -11,7 +11,6 @@ FooterTabs.propTypes = {
 }
 
 export default function FooterTabs (props) {
-  console.log('Here!', props)
   return (
     <TabBarIOS tintColor={colors.active}>
       <Icon.TabBarItem
