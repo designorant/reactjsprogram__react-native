@@ -1,13 +1,27 @@
 import React, { PropTypes, Component } from 'react'
-import { View, Text } from 'react-native'
+import { View, Text, Platform } from 'react-native'
 import NavigationBar from 'react-native-navbar'
+import { colors } from '~/styles'
 
-export default class ReactModoroNavbar extends Component {
-  static propTypes = {}
-  state = {}
-  render () {
-    return (
-      <NavigationBar title={{title: 'Home'}} />
-    )
-  }
+ReactModoroNavbar.propTypes = {
+  title: PropTypes.string.isRequired,
+  rightButton: PropTypes.element,
+  leftButton: PropTypes.element
+}
+
+export default function ReactModoroNavbar (props) {
+  let optionalAttrs = {}
+  props.rightButton && (optionalAttrs.rightButton = React.cloneElement(props.rightButton, {
+    style: { marginRight: 10, justifyContent: 'center' }
+  }))
+  props.leftButton && (optionalAttrs.leftButton = React.cloneElement(props.leftButton, {
+    style: { marginLeft: 10, justifyContent: 'center' }
+  }))
+  return (
+    <NavigationBar
+      {...optionalAttrs}
+      style={Platform.OS === 'android' ? {marginTop: 8, marginBottom: 8} : null}
+      tintColor={colors.tabPrimary}
+      title={{title: props.title}} />
+  )
 }
