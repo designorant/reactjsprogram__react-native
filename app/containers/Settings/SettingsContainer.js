@@ -3,6 +3,7 @@ import { View, Text } from 'react-native'
 import { Settings } from '~/components'
 import { connect } from 'react-redux'
 import { handleUnauth } from '~/redux/modules/authentication'
+import { showFlashNotification } from '~/redux/modules/flashNotification'
 
 class SettingsContainer extends Component {
   static propTypes = {
@@ -19,10 +20,10 @@ class SettingsContainer extends Component {
     this.setState({restDuration})
   }
   handleTimerComplete = () => {
-    console.log('Finished Sliding Timer')
+    this.props.dispatch(showFlashNotification({text: 'Timer Duration Saved!'}))
   }
   handleRestComplete = () => {
-    console.log('Finished Sliding Rest Timer')
+    this.props.dispatch(showFlashNotification({text: 'Rest Duration Saved!'}))
   }
   handleLogout = () => {
     this.props.dispatch(handleUnauth())
