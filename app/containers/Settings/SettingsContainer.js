@@ -1,17 +1,19 @@
 import React, { PropTypes, Component } from 'react'
-import { View, Text } from 'react-native'
 import { Settings } from '~/components'
 import { connect } from 'react-redux'
 import { handleUnauth } from '~/redux/modules/authentication'
 import { showFlashNotification } from '~/redux/modules/flashNotification'
+import { addSettingsTimerDuration, addSettingsRestDuration } from '~/redux/modules/settings'
 
 class SettingsContainer extends Component {
   static propTypes = {
-    navigator: PropTypes.object.isRequired
+    navigator: PropTypes.object.isRequired,
+    timerDuration: PropTypes.number.isRequired,
+    restDuration: PropTypes.number.isRequired
   }
   state = {
-    timerDuration: 20,
-    restDuration: 5
+    timerDuration: this.props.timerDuration,
+    restDuration: this.props.restDuration
   }
   handleTimerChange = (timerDuration) => {
     this.setState({timerDuration})
@@ -21,9 +23,11 @@ class SettingsContainer extends Component {
   }
   handleTimerComplete = () => {
     this.props.dispatch(showFlashNotification({text: 'Timer Duration Saved!'}))
+    this.props.dispatch(addSettingsTimerDuration(this.state.timerDuration))
   }
   handleRestComplete = () => {
     this.props.dispatch(showFlashNotification({text: 'Rest Duration Saved!'}))
+    this.props.dispatch(addSettingsRestDuration(this.state.restDuration))
   }
   handleLogout = () => {
     this.props.dispatch(handleUnauth())
@@ -43,4 +47,13 @@ class SettingsContainer extends Component {
   }
 }
 
-export default connect()(SettingsContainer)
+function mapStateToProps ({settings}) {
+  return {
+    timerDuration: settings.timerDuration,
+    restDuration: settings.restDuration
+  }
+}
+
+export default connect(
+  mapStateToProps
+)(SettingsContainer)
