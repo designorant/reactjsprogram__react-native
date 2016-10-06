@@ -3,7 +3,7 @@ import { Settings } from '~/components'
 import { connect } from 'react-redux'
 import { handleUnauth } from '~/redux/modules/authentication'
 import { showFlashNotification } from '~/redux/modules/flashNotification'
-import { addSettingsTimerDuration, addSettingsRestDuration } from '~/redux/modules/settings'
+import { handleAndUpdateTimer, handleAndUpdateRest } from '~/redux/modules/settings'
 
 class SettingsContainer extends Component {
   static propTypes = {
@@ -23,11 +23,11 @@ class SettingsContainer extends Component {
   }
   handleTimerComplete = () => {
     this.props.dispatch(showFlashNotification({text: 'Timer Duration Saved!'}))
-    this.props.dispatch(addSettingsTimerDuration(this.state.timerDuration))
+    this.props.dispatch(handleAndUpdateTimer(this.state.timerDuration))
   }
   handleRestComplete = () => {
     this.props.dispatch(showFlashNotification({text: 'Rest Duration Saved!'}))
-    this.props.dispatch(addSettingsRestDuration(this.state.restDuration))
+    this.props.dispatch(handleAndUpdateRest(this.state.restDuration))
   }
   handleLogout = () => {
     this.props.dispatch(handleUnauth())
