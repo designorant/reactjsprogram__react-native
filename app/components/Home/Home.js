@@ -5,8 +5,8 @@ import { ReactModoroNavbar, Gear, Hamburger } from '~/components'
 Home.propTypes = {
   openDrawer: PropTypes.func,
   handleToSettings: PropTypes.func.isRequired,
-  timer: PropTypes.number.isRequired,
-  rest: PropTypes.number.isRequired,
+  timer: PropTypes.string.isRequired,
+  rest: PropTypes.string.isRequired,
   activeCountdown: PropTypes.string.isRequired,
   onReset: PropTypes.func.isRequired,
   onSkipRest: PropTypes.func.isRequired,

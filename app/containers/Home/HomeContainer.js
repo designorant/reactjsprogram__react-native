@@ -2,6 +2,13 @@ import React, { PropTypes, Component } from 'react'
 import { connect } from 'react-redux'
 import { Home } from '~/components'
 
+function secondsToHMS (secs) {
+  const hours = Math.floor(secs / 3600)
+  const mins = Math.floor(secs % 3600 / 60)
+  const seconds = Math.floor(secs % 3600 % 60)
+  return ((hours > 0 ? hours + ':' + (mins < 10 ? '0' : '') : '') + mins + ':' + (seconds < 10 ? '0' : '') + seconds)
+}
+
 class HomeContainer extends Component {
   static propTypes = {
     openDrawer: PropTypes.func,
@@ -65,8 +72,8 @@ class HomeContainer extends Component {
       <Home
         handleToSettings={this.handleToSettings}
         openDrawer={this.props.openDrawer}
-        timer={this.state.timer}
-        rest={this.state.rest}
+        timer={secondsToHMS(this.state.timer)}
+        rest={secondsToHMS(this.state.rest)}
         activeCountdown={this.state.activeCountdown}
         onReset={this.handleReset}
         onSkipRest={this.handleSkipRest}
