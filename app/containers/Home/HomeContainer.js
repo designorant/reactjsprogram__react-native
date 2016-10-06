@@ -40,6 +40,10 @@ class HomeContainer extends Component {
       return window.clearInterval(this.interval)
     }
 
+    this.setState({
+      countdownRunning: true
+    })
+
     this.interval = setInterval(() => {
       const activeCountdown = this.state.activeCountdown
       const nextSecond = this.state[activeCountdown] - 1
@@ -55,8 +59,7 @@ class HomeContainer extends Component {
         })
       } else {
         this.setState({
-          [activeCountdown]: nextSecond,
-          countdownRunning: true
+          [activeCountdown]: nextSecond
         })
       }
     }, 1000)
