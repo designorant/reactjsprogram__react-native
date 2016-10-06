@@ -79,6 +79,11 @@ class HomeContainer extends Component {
       settings: true
     })
   }
+  getProgress = () => {
+    return this.state.activeCountdown === 'timer'
+      ? 1 - (this.state.timer / this.props.timerDuration)
+      : 1 - (this.state.rest / this.props.restDuration)
+  }
   render () {
     return (
       <Home
@@ -89,7 +94,9 @@ class HomeContainer extends Component {
         activeCountdown={this.state.activeCountdown}
         onReset={this.handleReset}
         onSkipRest={this.handleSkipRest}
-        onToggleCountdown={this.handleToggleCountdown} />
+        onToggleCountdown={this.handleToggleCountdown}
+        countdownRunning={this.state.countdownRunning}
+        progress={this.getProgress()} />
     )
   }
 }
