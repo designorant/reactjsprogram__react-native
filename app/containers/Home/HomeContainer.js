@@ -14,7 +14,8 @@ class HomeContainer extends Component {
     openDrawer: PropTypes.func,
     navigator: PropTypes.object.isRequired,
     timerDuration: PropTypes.number.isRequired,
-    restDuration: PropTypes.number.isRequired
+    restDuration: PropTypes.number.isRequired,
+    score: PropTypes.number.isRequired
   }
   state = {
     timer: this.props.timerDuration,
@@ -99,15 +100,17 @@ class HomeContainer extends Component {
         onSkipRest={this.handleSkipRest}
         onToggleCountdown={this.handleToggleCountdown}
         countdownRunning={this.state.countdownRunning}
-        progress={this.getProgress()} />
+        progress={this.getProgress()}
+        score={this.props.score} />
     )
   }
 }
 
-function mapStateToProps ({settings}) {
+function mapStateToProps ({settings, scores, authentication}) {
   return {
     timerDuration: settings.timerDuration * 60,
-    restDuration: settings.restDuration * 60
+    restDuration: settings.restDuration * 60,
+    score: scores.userScores[authentication.authedId]
   }
 }
 
