@@ -9,7 +9,7 @@ export function addUser (uid, user) {
   }
 }
 
-export function addMultipleUSers (users) {
+export function addMultipleUsers (users) {
   return {
     type: ADD_MULTIPLE_USERS,
     users
