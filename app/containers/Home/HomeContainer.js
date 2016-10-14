@@ -1,6 +1,7 @@
 import React, { PropTypes, Component } from 'react'
 import { connect } from 'react-redux'
 import { Home } from '~/components'
+import { incrementAndHandleScore, decrementAndHandleScore } from '~/redux/modules/scores'
 
 function secondsToHMS (secs) {
   const hours = Math.floor(secs / 3600)
@@ -38,6 +39,7 @@ class HomeContainer extends Component {
   handleToggleCountdown = () => {
     if (this.state.countdownRunning === true) {
       this.setState({countdownRunning: false})
+      this.props.dispatch(decrementAndHandleScore(5))
       return window.clearInterval(this.interval)
     }
 
@@ -58,10 +60,15 @@ class HomeContainer extends Component {
             ? 'rest'
             : 'timer'
         })
+        this.props.dispatch(incrementAndHandleScore(5))
       } else {
         this.setState({
           [activeCountdown]: nextSecond
         })
+      }
+
+      if (nextSecond % 60 === 0) {
+        this.props.dispatch(incrementAndHandleScore(1))
       }
     }, 1000)
   }
@@ -71,6 +78,8 @@ class HomeContainer extends Component {
       timer: this.props.timerDuration,
       countdownRunning: false
     })
+
+    this.props.dispatch(decrementAndHandleScore(5))
   }
   handleSkipRest = () => {
     this.setState({

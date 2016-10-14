@@ -1,13 +1,32 @@
 import { ref } from '~/config/constants'
-import { fetchScore } from '~/api/scores'
+import { fetchScore, increaseScore, decreaseScore } from '~/api/scores'
 import { fetchUser } from '~/api/users'
 import { addUser, addMultipleUsers } from '~/redux/modules/users'
+import { showFlashNotification } from '~/redux/modules/flashNotification'
 
 const FETCHING_SCORE = 'FETCHING_SCORE'
 const FETCHING_SCORE_SUCCESS = 'FETCHING_SCORE_SUCCESS'
 const UPDATE_LEADERBOARD = 'UPDATE_LEADERBOARD'
 const ADD_LISTENER = 'ADD_LISTENER'
 const ADD_SCORES = 'ADD_SCORES'
+const INCREMENT_SCORE = 'INCREMENT_SCORE'
+const DECREMENT_SCORE = 'DECREMENT_SCORE'
+
+function incrementScore (uid, amount) {
+  return {
+    type: INCREMENT_SCORE,
+    uid,
+    amount
+  }
+}
+
+function decrementScore (uid, amount) {
+  return {
+    type: DECREMENT_SCORE,
+    uid,
+    amount
+  }
+}
 
 function updateLeaderboard (uids) {
   return {
@@ -43,6 +62,30 @@ function fetchingScoreSuccess (uid, score) {
   }
 }
 
+export function incrementAndHandleScore (amount) {
+  return function (dispatch, getState) {
+    const { authedId } = getState().authentication
+    dispatch(incrementScore(authedId, amount))
+    increaseScore(authedId, amount)
+      .catch(() => {
+        dispatch(decrementScore(authedId, amount))
+        dispatch(showFlashNotification({text: 'Error updating your score'}))
+      })
+  }
+}
+
+export function decrementAndHandleScore (amount) {
+  return function (dispatch, getState) {
+    const { authedId } = getState().authentication
+    dispatch(decrementScore(authedId, amount))
+    decreaseScore(authedId, amount)
+      .catch(() => {
+        dispatch(incrementScore(authedId, amount))
+        dispatch(showFlashNotification({text: 'Error updating your score'}))
+      })
+  }
+}
+
 function userScores (state = {}, action) {
   switch (action.type) {
     case FETCHING_SCORE_SUCCESS:
@@ -54,6 +97,16 @@ function userScores (state = {}, action) {
       return {
         ...state,
         ...action.scores
+      }
+    case INCREMENT_SCORE:
+      return {
+        ...state,
+        [action.uid]: state[action.uid] + action.amount
+      }
+    case DECREMENT_SCORE:
+      return {
+        ...state,
+        [action.uid]: state[action.uid] - action.amount
       }
     default:
       return state
@@ -146,6 +199,8 @@ export default function scores (state = initialState, action) {
         leaderboardUids: action.uids
       }
     case ADD_SCORES:
+    case INCREMENT_SCORE:
+    case DECREMENT_SCORE:
       return {
         ...state,
         userScores: userScores(state.userScores, action)
