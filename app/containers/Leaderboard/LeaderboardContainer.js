@@ -22,7 +22,10 @@ class LeaderboardContainer extends Component {
   }
   render () {
     return (
-      <Leaderboard openDrawer={this.props.openDrawer} />
+      <Leaderboard
+        listenerSet={this.props.listenerSet}
+        leaders={this.props.leaders}
+        openDrawer={this.props.openDrawer} />
     )
   }
 }
