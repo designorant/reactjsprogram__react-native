@@ -156,6 +156,12 @@ async@^1.4.2:
   version "1.5.2"
   resolved "https://registry.yarnpkg.com/async/-/async-1.5.2.tgz#ec6a61ae56480c0c3cb241c95618e20892f9672a"
 
+async@^2.0.1:
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/async/-/async-2.1.2.tgz#612a4ab45ef42a70cde806bad86ee6db047e8385"
+  dependencies:
+    lodash "^4.14.0"
+
 async@~0.2.6:
   version "0.2.10"
   resolved "https://registry.yarnpkg.com/async/-/async-0.2.10.tgz#b6bbe0b0674b9d719708ca38de8c237cb526c3d1"
@@ -202,6 +208,18 @@ babel-eslint@^7.0.0:
     babel-types "^6.15.0"
     babylon "^6.11.2"
     lodash.pickby "^4.6.0"
+
+babel-generator@^6.14.0:
+  version "6.18.0"
+  resolved "https://registry.yarnpkg.com/babel-generator/-/babel-generator-6.18.0.tgz#e4f104cb3063996d9850556a45aae4a022060a07"
+  dependencies:
+    babel-messages "^6.8.0"
+    babel-runtime "^6.9.0"
+    babel-types "^6.18.0"
+    detect-indent "^4.0.0"
+    jsesc "^1.3.0"
+    lodash "^4.2.0"
+    source-map "^0.5.0"
 
 babel-generator@^6.17.0:
   version "6.17.0"
@@ -830,6 +848,15 @@ babel-types@^6.14.0, babel-types@^6.15.0, babel-types@^6.16.0, babel-types@^6.6.
     lodash "^4.2.0"
     to-fast-properties "^1.0.1"
 
+babel-types@^6.18.0:
+  version "6.18.0"
+  resolved "https://registry.yarnpkg.com/babel-types/-/babel-types-6.18.0.tgz#1f7d5a73474c59eb9151b2417bbff4e4fce7c3f8"
+  dependencies:
+    babel-runtime "^6.9.1"
+    esutils "^2.0.2"
+    lodash "^4.2.0"
+    to-fast-properties "^1.0.1"
+
 babylon@^6.11.0, babylon@^6.11.2, babylon@^6.8.2:
   version "6.13.0"
   resolved "https://registry.yarnpkg.com/babylon/-/babylon-6.13.0.tgz#58ed40dd2a8120612be5f318c2c0bedbebde4a0b"
@@ -846,7 +873,11 @@ base62@^1.1.0:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/base62/-/base62-1.1.1.tgz#974e82c11bd5e00816b508a7ed9c7b9086c9db6b"
 
-base64-js@^0.0.8, base64-js@0.0.8:
+base64-js@^1.1.2:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/base64-js/-/base64-js-1.2.0.tgz#a39992d723584811982be5e290bb6a53d86700f1"
+
+base64-js@0.0.8:
   version "0.0.8"
   resolved "https://registry.yarnpkg.com/base64-js/-/base64-js-0.0.8.tgz#1101e9544f4a76b1bc3b26d452ca96d7a35e7978"
 
@@ -1519,6 +1550,12 @@ detect-indent@^3.0.1:
     minimist "^1.1.0"
     repeating "^1.1.0"
 
+detect-indent@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/detect-indent/-/detect-indent-4.0.0.tgz#f76d064352cdf43a1cb6ce619c4ee3a9475de208"
+  dependencies:
+    repeating "^2.0.0"
+
 detect-newline@^1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/detect-newline/-/detect-newline-1.0.3.tgz#e97b1003877d70c09af1af35bfadff168de4920d"
@@ -1964,7 +2001,7 @@ faye-websocket@0.9.3:
   dependencies:
     websocket-driver ">=0.5.1"
 
-fb-watchman@^1.8.0:
+fb-watchman@^1.8.0, fb-watchman@^1.9.0:
   version "1.9.0"
   resolved "https://registry.yarnpkg.com/fb-watchman/-/fb-watchman-1.9.0.tgz#6f268f1f347a6b3c875d1e89da7e1ed79adfc0ec"
   dependencies:
@@ -2770,6 +2807,15 @@ istextorbinary@^1.0.2:
     binaryextensions "~1.0.0"
     textextensions "~1.0.0"
 
+jest-haste-map@15.0.1:
+  version "15.0.1"
+  resolved "https://registry.yarnpkg.com/jest-haste-map/-/jest-haste-map-15.0.1.tgz#1d1c342fa6f6d62d9bc2af76428d2e20f74a44d3"
+  dependencies:
+    fb-watchman "^1.9.0"
+    graceful-fs "^4.1.6"
+    multimatch "^2.1.0"
+    worker-farm "^1.3.1"
+
 joi@^6.6.1:
   version "6.10.1"
   resolved "https://registry.yarnpkg.com/joi/-/joi-6.10.1.tgz#4d50c318079122000fe5f16af1ff8e1917b77e06"
@@ -3043,7 +3089,7 @@ lodash@^3.1.0, lodash@^3.10.1, lodash@^3.2.0, lodash@^3.3.1, lodash@^3.5.0, loda
   version "3.10.1"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-3.10.1.tgz#5bf45e8e49ba4189e17d482789dfd15bd140b7b6"
 
-lodash@^4.0.0, lodash@^4.2.0, lodash@^4.2.1, lodash@^4.3.0, lodash@^4.6.1:
+lodash@^4.0.0, lodash@^4.14.0, lodash@^4.2.0, lodash@^4.2.1, lodash@^4.3.0, lodash@^4.6.1:
   version "4.16.4"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.16.4.tgz#01ce306b9bad1319f2a5528674f88297aeb70127"
 
@@ -3278,7 +3324,7 @@ ms@^0.7.1, ms@0.7.1:
   version "0.7.1"
   resolved "https://registry.yarnpkg.com/ms/-/ms-0.7.1.tgz#9cd13c03adbff25b65effde7ce864ee952017098"
 
-multimatch@^2.0.0:
+multimatch@^2.0.0, multimatch@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/multimatch/-/multimatch-2.1.0.tgz#9c7906a22fb4c02919e2f5f75161b4cdbd4b2a2b"
   dependencies:
@@ -3686,6 +3732,82 @@ react-deep-force-update@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/react-deep-force-update/-/react-deep-force-update-1.0.1.tgz#f911b5be1d2a6fe387507dd6e9a767aa2924b4c7"
 
+react-native:
+  version "0.36.0"
+  resolved "https://registry.yarnpkg.com/react-native/-/react-native-0.36.0.tgz#3ce19cebcf99e2dc5a889cbb74201ef63ecb6a55"
+  dependencies:
+    absolute-path "^0.0.0"
+    art "^0.10.0"
+    async "^2.0.1"
+    babel-core "^6.10.4"
+    babel-generator "^6.14.0"
+    babel-plugin-external-helpers "^6.8.0"
+    babel-plugin-syntax-trailing-function-commas "^6.5.0"
+    babel-plugin-transform-flow-strip-types "^6.6.5"
+    babel-plugin-transform-object-rest-spread "^6.6.5"
+    babel-polyfill "^6.9.1"
+    babel-preset-es2015-node "^6.1.0"
+    babel-preset-fbjs "^2.0.0"
+    babel-preset-react-native "^1.9.0"
+    babel-register "^6.6.0"
+    babel-types "^6.6.4"
+    babylon "^6.8.2"
+    base64-js "^1.1.2"
+    bser "^1.0.2"
+    chalk "^1.1.1"
+    commander "^2.9.0"
+    connect "^2.8.3"
+    core-js "^2.2.2"
+    debug "^2.2.0"
+    denodeify "^1.2.1"
+    event-target-shim "^1.0.5"
+    fbjs "^0.8.3"
+    fbjs-scripts "^0.7.0"
+    fs-extra "^0.26.2"
+    glob "^5.0.15"
+    graceful-fs "^4.1.3"
+    image-size "^0.3.5"
+    immutable "~3.7.6"
+    inquirer "^0.12.0"
+    jest-haste-map "15.0.1"
+    joi "^6.6.1"
+    json-stable-stringify "^1.0.1"
+    json5 "^0.4.0"
+    jstransform "^11.0.3"
+    lodash "^3.10.1"
+    mime "^1.3.4"
+    mime-types "2.1.11"
+    minimist "^1.2.0"
+    mkdirp "^0.5.1"
+    module-deps "^3.9.1"
+    node-fetch "^1.3.3"
+    npmlog "^2.0.4"
+    opn "^3.0.2"
+    optimist "^0.6.1"
+    plist "^1.2.0"
+    progress "^1.1.8"
+    promise "^7.1.1"
+    react-clone-referenced-element "^1.0.1"
+    react-timer-mixin "^0.13.2"
+    react-transform-hmr "^1.0.4"
+    rebound "^0.0.13"
+    regenerator-runtime "^0.9.5"
+    sane "~1.4.1"
+    semver "^5.0.3"
+    source-map "^0.5.6"
+    stacktrace-parser "^0.1.3"
+    temp "0.8.3"
+    uglify-js "^2.6.2"
+    whatwg-fetch "^1.0.0"
+    wordwrap "^1.0.0"
+    worker-farm "^1.3.1"
+    ws "^1.1.0"
+    xcode "^0.8.9"
+    xmldoc "^0.4.0"
+    yargs "^3.24.0"
+    yeoman-environment "1.5.3"
+    yeoman-generator "0.21.2"
+
 react-native-config@^0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/react-native-config/-/react-native-config-0.1.0.tgz#5f7dbd97bc7bea9311373ae63e0f7677c8424e74"
@@ -3711,79 +3833,6 @@ react-native-vector-icons@^2.1.0:
   dependencies:
     lodash "^4.0.0"
     yargs "^4.7.0"
-
-react-native@^0.34.1:
-  version "0.34.1"
-  resolved "https://registry.yarnpkg.com/react-native/-/react-native-0.34.1.tgz#a88370bd5f0f74831605415a302395eb5b376917"
-  dependencies:
-    absolute-path "^0.0.0"
-    art "^0.10.0"
-    babel-core "^6.10.4"
-    babel-plugin-external-helpers "^6.8.0"
-    babel-plugin-syntax-trailing-function-commas "^6.5.0"
-    babel-plugin-transform-flow-strip-types "^6.6.5"
-    babel-plugin-transform-object-rest-spread "^6.6.5"
-    babel-polyfill "^6.9.1"
-    babel-preset-es2015-node "^6.1.0"
-    babel-preset-fbjs "^2.0.0"
-    babel-preset-react-native "^1.9.0"
-    babel-register "^6.6.0"
-    babel-types "^6.6.4"
-    babylon "^6.8.2"
-    base64-js "^0.0.8"
-    bser "^1.0.2"
-    chalk "^1.1.1"
-    commander "^2.9.0"
-    connect "^2.8.3"
-    core-js "^2.2.2"
-    debug "^2.2.0"
-    denodeify "^1.2.1"
-    event-target-shim "^1.0.5"
-    fbjs "^0.8.3"
-    fbjs-scripts "^0.7.0"
-    fs-extra "^0.26.2"
-    glob "^5.0.15"
-    graceful-fs "^4.1.3"
-    image-size "^0.3.5"
-    immutable "~3.7.6"
-    inquirer "^0.12.0"
-    joi "^6.6.1"
-    json-stable-stringify "^1.0.1"
-    json5 "^0.4.0"
-    jstransform "^11.0.3"
-    lodash "^3.10.1"
-    mime "^1.3.4"
-    mime-types "2.1.11"
-    minimist "^1.2.0"
-    mkdirp "^0.5.1"
-    module-deps "^3.9.1"
-    node-fetch "^1.3.3"
-    npmlog "^2.0.4"
-    opn "^3.0.2"
-    optimist "^0.6.1"
-    plist "^1.2.0"
-    progress "^1.1.8"
-    promise "^7.1.1"
-    react-clone-referenced-element "^1.0.1"
-    react-timer-mixin "^0.13.2"
-    react-transform-hmr "^1.0.4"
-    rebound "^0.0.13"
-    regenerator-runtime "^0.9.5"
-    sane "~1.4.1"
-    semver "^5.0.3"
-    source-map "^0.4.4"
-    stacktrace-parser "^0.1.3"
-    temp "0.8.3"
-    uglify-js "^2.6.2"
-    whatwg-fetch "^1.0.0"
-    wordwrap "^1.0.0"
-    worker-farm "^1.3.1"
-    ws "^1.1.0"
-    xcode "^0.8.9"
-    xmldoc "^0.4.0"
-    yargs "^3.24.0"
-    yeoman-environment "1.5.3"
-    yeoman-generator "0.21.2"
 
 react-proxy@^1.1.7:
   version "1.1.8"
@@ -4268,13 +4317,13 @@ source-map-support@^0.4.2:
   dependencies:
     source-map "^0.5.3"
 
-source-map@^0.4.2, source-map@^0.4.4:
+source-map@^0.4.2:
   version "0.4.4"
   resolved "https://registry.yarnpkg.com/source-map/-/source-map-0.4.4.tgz#eba4f5da9c0dc999de68032d8b4f76173652036b"
   dependencies:
     amdefine ">=0.0.4"
 
-source-map@^0.5.0, source-map@^0.5.3, source-map@~0.5.0, source-map@~0.5.1:
+source-map@^0.5.0, source-map@^0.5.3, source-map@^0.5.6, source-map@~0.5.0, source-map@~0.5.1:
   version "0.5.6"
   resolved "https://registry.yarnpkg.com/source-map/-/source-map-0.5.6.tgz#75ce38f52bf0733c5a7f0c118d81334a2bb5f412"
 
