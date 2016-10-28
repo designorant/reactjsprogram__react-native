@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react'
-import { StyleSheet, DrawerLayoutAndroid } from 'react-native'
+import { DrawerLayoutAndroid } from 'react-native'
 import { HomeContainer, LeaderboardContainer } from '~/containers'
 import Drawer from './Drawer'
 
@@ -28,7 +28,3 @@ export default function FooterTabs (props) {
     </DrawerLayoutAndroid>
   )
 }
-
-const styles = StyleSheet.create({
-
-})

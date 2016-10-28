@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react'
-import { View, StyleSheet, Text } from 'react-native'
+import { View, StyleSheet } from 'react-native'
 
 import DrawerHeader from './DrawerHeader'
 import DrawerTab from './DrawerTab'
